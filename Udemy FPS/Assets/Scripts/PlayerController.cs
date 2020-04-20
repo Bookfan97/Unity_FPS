@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float yStore = moveInput.y;
-        Vector3 vertMove = transform.forward * Input.GetAxis("Vertical");
-        Vector3 horiMove = transform.right * Input.GetAxis("Horizontal");
+        Vector3 vertMove = transform.forward * Input.GetAxisRaw("Vertical");
+        Vector3 horiMove = transform.right * Input.GetAxisRaw("Horizontal");
         moveInput = horiMove + vertMove;
         moveInput.Normalize();
         if(Input.GetKey(KeyCode.LeftShift))
