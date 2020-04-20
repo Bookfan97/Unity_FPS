@@ -26,7 +26,11 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+        }
         Destroy(gameObject);
-        Instantiate(impactEffect, transform.position, transform.rotation);
+        Instantiate(impactEffect, transform.position +(transform.forward * (-moveSpeed * Time.deltaTime)), transform.rotation);
     }
 }
