@@ -10,14 +10,16 @@ public class EnemyController : MonoBehaviour
     private Vector3 targetPoint, startPoint;
     public NavMeshAgent agent;
     public float keepChasingTime;
-    private float chaseCounter, fireCount;
+    private float chaseCounter, fireCount, shotWaitCounter, shootTimeCounter;
     public GameObject bullet;
     public Transform firePoint;
-    public float fireRate;
+    public float fireRate, waitBetweenShots=2f, timeToShoot = 1f;
     // Start is called before the first frame update
     void Start()
     {
         startPoint = transform.position;
+        shootTimeCounter = timeToShoot;
+        shotWaitCounter = waitBetweenShots;
     }
 
     // Update is called once per frame
@@ -59,11 +61,31 @@ public class EnemyController : MonoBehaviour
                 chaseCounter = keepChasingTime;
                 //agent.destination=startPoint;
             }
-            fireCount -= Time.deltaTime;
-            if(fireCount <= 0)
+            if (shotWaitCounter > 0)
             {
-                fireCount = fireRate;
-                Instantiate(bullet, firePoint.position, firePoint.rotation);
+                shotWaitCounter -= Time.deltaTime;
+                if(shotWaitCounter <=0)
+                {
+                    shootTimeCounter = timeToShoot;
+                }
+            }
+            else
+            {
+                shootTimeCounter -= Time.deltaTime;
+                if (shootTimeCounter > 0)
+                {
+                    fireCount -= Time.deltaTime;
+                    if (fireCount <= 0)
+                    {
+                        fireCount = fireRate;
+                        Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    }
+                    agent.destination = transform.position;
+                }
+                else
+                {
+                    shotWaitCounter = waitBetweenShots;
+                }
             }
         }
     }
