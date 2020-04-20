@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
     public float fireRate, waitBetweenShots=2f, timeToShoot = 1f;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,14 @@ public class EnemyController : MonoBehaviour
             {
                 agent.destination = startPoint;
             }
+            if (agent.remainingDistance < .25f)
+            {
+                anim.SetBool("isMoving", false);
+            }
+            else
+            {
+                anim.SetBool("isMoving", true);
+            }
         }
         else
         {
@@ -59,6 +68,7 @@ public class EnemyController : MonoBehaviour
             {
                 chasing = false;
                 chaseCounter = keepChasingTime;
+                shotWaitCounter = waitBetweenShots;
                 //agent.destination=startPoint;
             }
             if (shotWaitCounter > 0)
@@ -68,6 +78,7 @@ public class EnemyController : MonoBehaviour
                 {
                     shootTimeCounter = timeToShoot;
                 }
+                anim.SetBool("isMoving", true);
             }
             else
             {
@@ -84,6 +95,7 @@ public class EnemyController : MonoBehaviour
                         if (Mathf.Abs(angle)<30f)
                         {
                             Instantiate(bullet, firePoint.position, firePoint.rotation);
+                            anim.SetTrigger("fireShot");
                         }
                         else
                         {
@@ -97,6 +109,7 @@ public class EnemyController : MonoBehaviour
                 {
                     shotWaitCounter = waitBetweenShots;
                 }
+                anim.SetBool("isMoving", false);
             }
         }
     }
