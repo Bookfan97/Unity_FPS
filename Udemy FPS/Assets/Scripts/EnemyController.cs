@@ -5,14 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float moveSpeed;
-    public Rigidbody theRB;
     private bool chasing;
     public float distanceToChase = 10f, distanceToLose = 15f, distanceToStop = 2f;
     private Vector3 targetPoint, startPoint;
     public NavMeshAgent agent;
     public float keepChasingTime;
-    private float chaseCounter;
+    private float chaseCounter, fireCount;
+    public GameObject bullet;
+    public Transform firePoint;
+    public float fireRate;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class EnemyController : MonoBehaviour
             if(Vector3.Distance(transform.position, targetPoint)<distanceToChase)
             {
                 chasing = true;
+                fireCount = 1f;
             }
             if(chaseCounter>0)
             {
@@ -55,7 +57,13 @@ public class EnemyController : MonoBehaviour
             {
                 chasing = false;
                 chaseCounter = keepChasingTime;
-                agent.destination=startPoint;
+                //agent.destination=startPoint;
+            }
+            fireCount -= Time.deltaTime;
+            if(fireCount <= 0)
+            {
+                fireCount = fireRate;
+                Instantiate(bullet, firePoint.position, firePoint.rotation);
             }
         }
     }

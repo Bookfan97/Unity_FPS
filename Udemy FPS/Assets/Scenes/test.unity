@@ -1595,13 +1595,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48489eb70ad8cfc4b818c2cf885127e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  theRB: {fileID: 0}
   distanceToChase: 10
   distanceToLose: 15
   distanceToStop: 2
   agent: {fileID: 1199430005}
   keepChasingTime: 10
+  bullet: {fileID: 7225338958752566610, guid: 237d2ef12cb67d24abad975c07109bbe, type: 3}
+  firePoint: {fileID: 1367431054}
+  fireRate: 0.3
 --- !u!195 &1199430005
 NavMeshAgent:
   m_ObjectHideFlags: 0
