@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour
     public float moveSpeed, lifeTime;
     public Rigidbody theRB;
     public GameObject impactEffect;
+    public int damage = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,8 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.gameObject.GetComponent<EnemyHealthController>().DamageEnemy(damage);
         }
         Destroy(gameObject);
         Instantiate(impactEffect, transform.position +(transform.forward * (-moveSpeed * Time.deltaTime)), transform.rotation);

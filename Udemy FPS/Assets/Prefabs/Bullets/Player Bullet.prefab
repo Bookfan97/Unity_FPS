@@ -113,6 +113,7 @@ MonoBehaviour:
   theRB: {fileID: 7225338958752566615}
   impactEffect: {fileID: 8313075226842117636, guid: 511224421b5eddb40b037b269bc93968,
     type: 3}
+  damage: 1
 --- !u!54 &7225338958752566615
 Rigidbody:
   m_ObjectHideFlags: 0
