@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform camTrans;
     public float mouseSensitivity;
     public bool invertX, invertY;
-    private bool canJump;
+    private bool canJump, canDoubleJump;
     public Transform groundCheckPoint;
     public LayerMask whatIsGround;
     // Start is called before the first frame update
@@ -35,9 +35,19 @@ public class PlayerController : MonoBehaviour
             moveInput.y = Physics.gravity.y * gravityModifier * Time.deltaTime;
         }
         canJump = Physics.OverlapSphere(groundCheckPoint.position, .25f, whatIsGround).Length > 0;
+        if(canJump)
+        {
+            canDoubleJump = true;//false;
+        }
         if(Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             moveInput.y = jumpPower;
+            canDoubleJump = true;
+        }
+        else if(canDoubleJump && Input.GetKeyDown(KeyCode.Space))
+        {
+            moveInput.y = jumpPower;
+            canDoubleJump = false;
         }
         charCon.Move(moveInput * Time.deltaTime);
         Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
