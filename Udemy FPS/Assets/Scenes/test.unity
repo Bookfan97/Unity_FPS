@@ -121,6 +121,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &74394611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 74394612}
+  m_Layer: 0
+  m_Name: Ground Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &74394612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74394611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1308745084}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519534719
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +236,7 @@ GameObject:
   - component: {fileID: 581758701}
   - component: {fileID: 581758700}
   - component: {fileID: 581758699}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +518,7 @@ GameObject:
   - component: {fileID: 1065186076}
   - component: {fileID: 1065186075}
   - component: {fileID: 1065186074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +646,7 @@ GameObject:
   - component: {fileID: 1305299512}
   - component: {fileID: 1305299511}
   - component: {fileID: 1305299510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,11 +753,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308745083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: -7}
+  m_LocalPosition: {x: 1, y: 1.12, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1314399195}
   - {fileID: 519534720}
+  - {fileID: 74394612}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -745,11 +776,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   gravityModifier: 2
+  jumpPower: 10
   charCon: {fileID: 1308745086}
   camTrans: {fileID: 519534720}
   mouseSensitivity: 2
   invertX: 0
   invertY: 0
+  groundCheckPoint: {fileID: 74394612}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!143 &1308745086
 CharacterController:
   m_ObjectHideFlags: 0
@@ -874,7 +910,7 @@ GameObject:
   - component: {fileID: 1335575760}
   - component: {fileID: 1335575759}
   - component: {fileID: 1335575758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +1004,7 @@ GameObject:
   - component: {fileID: 1456811136}
   - component: {fileID: 1456811135}
   - component: {fileID: 1456811134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
