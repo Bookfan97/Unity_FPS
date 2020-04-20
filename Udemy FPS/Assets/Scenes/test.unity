@@ -1597,7 +1597,9 @@ MonoBehaviour:
   theRB: {fileID: 0}
   distanceToChase: 10
   distanceToLose: 15
+  distanceToStop: 2
   agent: {fileID: 1199430005}
+  keepChasingTime: 0
 --- !u!195 &1199430005
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2295,13 +2297,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456811132}
-  m_LocalRotation: {x: 0.21725379, y: -0.6735904, z: -0.21452305, w: 0.6730948}
-  m_LocalPosition: {x: 3.96, y: 3.9, z: 13.64}
-  m_LocalScale: {x: 13.72, y: 0.61, z: 8}
+  m_LocalRotation: {x: 0.13817047, y: -0.6938377, z: -0.13540083, w: 0.6936604}
+  m_LocalPosition: {x: 3.96, y: 3.55, z: 18.53}
+  m_LocalScale: {x: 22.238543, y: 0.61, z: 8}
   m_Children: []
   m_Father: {fileID: 1187511926}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0.19800001, y: -90.106, z: -35.554}
+  m_LocalEulerAnglesHint: {x: 0.21700001, y: -90.05801, z: -22.308}
 --- !u!65 &1456811134
 BoxCollider:
   m_ObjectHideFlags: 0
