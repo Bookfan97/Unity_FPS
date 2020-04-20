@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed, gravityModifier;
     public CharacterController charCon;
     private Vector3 moveInput;
     public Transform camTrans;
     public float mouseSensitivity;
-    public bool invertX;
-    public bool invertY;
+    public bool invertX, invertY;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +19,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float yStore = moveInput.y;
         Vector3 vertMove = transform.forward * Input.GetAxis("Vertical");
         Vector3 horiMove = transform.right * Input.GetAxis("Horizontal");
         moveInput = horiMove + vertMove;
         moveInput.Normalize();
         moveInput = moveInput * moveSpeed;
+        moveInput.y = yStore;
+        moveInput.y += Physics.gravity.y * gravityModifier;
+        if(charCon.isGrounded)
+        {
+            moveInput.y = Physics.gravity.y * gravityModifier * Time.deltaTime;
+        }
         charCon.Move(moveInput * Time.deltaTime);
         Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
         if(invertX)
@@ -36,6 +42,6 @@ public class PlayerController : MonoBehaviour
             mouseInput.y = -mouseInput.y;
         }
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseInput.x, transform.rotation.eulerAngles.z);
-        camTrans.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
+        camTrans.rotation = Quaternion.Euler(camTrans.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
     }
 }
