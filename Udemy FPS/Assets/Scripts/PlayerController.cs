@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public Gun activeGun;
     public List<Gun> allGuns = new List<Gun>();
+    public List<Gun> unlockableGuns = new List<Gun>();
     public int currentGun;
     public Transform ADSPoint, gunHolder;
     private Vector3 gunStartPos;
@@ -161,5 +162,27 @@ public class PlayerController : MonoBehaviour
         activeGun.gameObject.SetActive(true);
         UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
         firePoint.position = activeGun.firePoint.position;
+    }
+    public void AddGun(string gunToAdd)
+    {
+        bool gunUnlocked = false;
+        if(unlockableGuns.Count >0)
+        {
+            for(int i=0; i<unlockableGuns.Count; i++)
+            {
+                if(unlockableGuns[i].gunName == gunToAdd)
+                {
+                    gunUnlocked = true;
+                    allGuns.Add(unlockableGuns[i]);
+                    unlockableGuns.RemoveAt(i);
+                    i = unlockableGuns.Count;
+                }
+            }
+        }
+        if(gunUnlocked)
+        {
+            currentGun = allGuns.Count - 2;
+            SwitchGun();
+        }
     }
 }

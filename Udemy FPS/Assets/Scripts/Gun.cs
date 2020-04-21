@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     public int currentAmmo, pickupAmount;
     public Transform firePoint;
     public int zoomAmount;
+    public string gunName;
     // Start is called before the first frame update
     void Start()
     {
