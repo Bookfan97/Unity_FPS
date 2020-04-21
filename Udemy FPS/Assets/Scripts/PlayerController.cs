@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour
             currentGun = 0;
         }
         activeGun = allGuns[currentGun];
+        Debug.Log("Current Gun: " + currentGun);
         activeGun.gameObject.SetActive(true);
         UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
         firePoint.position = activeGun.firePoint.position;
