@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     [HideInInspector]
     public float fireCounter;
     public int currentAmmo, pickupAmount;
+    public Transform firePoint;
     // Start is called before the first frame update
     void Start()
     {

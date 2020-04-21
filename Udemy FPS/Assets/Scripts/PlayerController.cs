@@ -27,9 +27,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeGun = allGuns[currentGun];
-        activeGun.gameObject.SetActive(true);
-        UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
+        currentGun--;
+        SwitchGun();
     }
 
 
@@ -141,5 +140,6 @@ public class PlayerController : MonoBehaviour
         activeGun = allGuns[currentGun];
         activeGun.gameObject.SetActive(true);
         UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
+        firePoint.position = activeGun.firePoint.position;
     }
 }
