@@ -17,8 +17,7 @@ public class PlayerHealthController : MonoBehaviour
     {
         currentHealth = maxHealth;
         UIController.instance.healthSlider.maxValue = maxHealth;
-        UIController.instance.healthSlider.value = currentHealth;
-        UIController.instance.healthText.text = "HEALTH: " + currentHealth + "/" + maxHealth;
+        UpdateHealthUI();
     }
 
     // Update is called once per frame
@@ -41,8 +40,23 @@ public class PlayerHealthController : MonoBehaviour
                 GameManager.instance.PlayerDied();
             }
             invincibleCounter = invincibleLength;
-            UIController.instance.healthSlider.value = currentHealth;
-            UIController.instance.healthText.text = "HEALTH: " + currentHealth + "/" + maxHealth;
+            UpdateHealthUI();
         }
+    }
+
+    public void HealPlayer(int healAmount)
+    {
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        UpdateHealthUI();
+    }
+
+    private void UpdateHealthUI()
+    {
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = "HEALTH: " + currentHealth + "/" + maxHealth;
     }
 }
