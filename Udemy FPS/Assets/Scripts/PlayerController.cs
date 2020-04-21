@@ -15,9 +15,11 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheckPoint;
     public LayerMask whatIsGround;
     public Animator anim;
-    public GameObject bullet;
+    //public GameObject bullet;
     public Transform firePoint;
     public Gun activeGun;
+    public List<Gun> allGuns = new List<Gun>();
+    public int currentGun;
     private void Awake()
     {
         instance = this;
@@ -25,8 +27,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIController.instance.ammoText.text = "AMMO: "+activeGun.currentAmmo;
+        activeGun = allGuns[currentGun];
+        activeGun.gameObject.SetActive(true);
+        UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -101,6 +106,10 @@ public class PlayerController : MonoBehaviour
                 FireShot();
             }
         }
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwitchGun();
+        }
         anim.SetFloat("moveSpeed", moveInput.magnitude);
         anim.SetBool("onGround", canJump);
     }
@@ -118,6 +127,19 @@ public class PlayerController : MonoBehaviour
         {
             activeGun.currentAmmo = 0;
         }
+        UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
+    }
+
+    private void SwitchGun()
+    {
+        activeGun.gameObject.SetActive(false);
+        currentGun++;
+        if(currentGun>=allGuns.Count)
+        {
+            currentGun = 0;
+        }
+        activeGun = allGuns[currentGun];
+        activeGun.gameObject.SetActive(true);
         UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
     }
 }

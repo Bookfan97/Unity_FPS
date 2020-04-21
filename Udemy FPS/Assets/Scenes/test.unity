@@ -2675,9 +2675,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   anim: {fileID: 1308745087}
-  bullet: {fileID: 7225338958752566610, guid: 6a6c00896280f574ca40e467c1a1b79b, type: 3}
   firePoint: {fileID: 2120932462}
   activeGun: {fileID: 1859422189}
+  allGuns:
+  - {fileID: 756134716}
+  - {fileID: 1075238703}
+  - {fileID: 1859422189}
+  currentGun: 1
 --- !u!143 &1308745086
 CharacterController:
   m_ObjectHideFlags: 0
