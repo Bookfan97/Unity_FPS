@@ -5,9 +5,10 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour
 {
     public int healAmount;
+    private bool collected;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Player")
+        if (other.tag == "Player" && !collected)
         {
             PlayerHealthController.instance.HealPlayer(healAmount);
             Destroy(gameObject);
