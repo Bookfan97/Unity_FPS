@@ -41,7 +41,7 @@ public class BulletController : MonoBehaviour
         if (other.gameObject.tag == "Player" && damagePlayer)
         {
             //PlayerHealthSystem
-            Debug.Log("Watch it! I got hit");
+            PlayerHealthController.instance.DamagePlayer(damage);
         }
         Destroy(gameObject);
         Instantiate(impactEffect, transform.position +(transform.forward * (-moveSpeed * Time.deltaTime)), transform.rotation);
