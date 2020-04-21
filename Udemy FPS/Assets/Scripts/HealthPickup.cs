@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour
 {
     public int healAmount;
-    private bool collected;
+    private bool collected = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && !collected)

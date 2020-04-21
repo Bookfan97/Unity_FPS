@@ -1452,6 +1452,7 @@ MonoBehaviour:
   currentAmmo: 5
   pickupAmount: 15
   firePoint: {fileID: 2120932462}
+  zoomAmount: 50
 --- !u!4 &760879234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 266573490326095228, guid: 35c5209b1ae032044b36890eba3c662b,
@@ -1793,12 +1794,12 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1807,7 +1808,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1852,6 +1853,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 519534720}
+  zoomSpeed: 1
+  theCamera: {fileID: 963194227}
 --- !u!1 &967469668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,6 +2103,7 @@ MonoBehaviour:
   currentAmmo: 20
   pickupAmount: 30
   firePoint: {fileID: 1044909646}
+  zoomAmount: 40
 --- !u!1 &1077602634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4430,6 +4434,7 @@ MonoBehaviour:
   currentAmmo: 15
   pickupAmount: 5
   firePoint: {fileID: 262431339}
+  zoomAmount: 20
 --- !u!1 &1876293231
 GameObject:
   m_ObjectHideFlags: 0
