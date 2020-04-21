@@ -37,6 +37,8 @@ public class PlayerHealthController : MonoBehaviour
             if (currentHealth <= 0)
             {
                 gameObject.SetActive(false);
+                currentHealth = 0;
+                GameManager.instance.PlayerDied();
             }
             invincibleCounter = invincibleLength;
             UIController.instance.healthSlider.value = currentHealth;
