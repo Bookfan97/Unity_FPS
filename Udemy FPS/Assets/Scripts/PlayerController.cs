@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject bullet;
     public Transform firePoint;
+    public Gun activeGun;
     private void Awake()
     {
         instance = this;
@@ -90,9 +91,15 @@ public class PlayerController : MonoBehaviour
             {
                 firePoint.LookAt(camTrans.position + (camTrans.forward * 30));
             }
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            //Instantiate(bullet, firePoint.position, firePoint.rotation);
+            FireShot();
         }
         anim.SetFloat("moveSpeed", moveInput.magnitude);
         anim.SetBool("onGround", canJump);
+    }
+
+    public void FireShot()
+    {
+        Instantiate(activeGun.bullet, firePoint.position, firePoint.rotation);
     }
 }
