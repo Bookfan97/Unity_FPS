@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UIController.instance.ammoText.text = "AMMO: "+activeGun.currentAmmo;
     }
 
     // Update is called once per frame
@@ -112,6 +112,12 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(activeGun.bullet, firePoint.position, firePoint.rotation);
             activeGun.fireCounter = activeGun.fireRate;
+            //UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
         }
+        else
+        {
+            activeGun.currentAmmo = 0;
+        }
+        UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
     }
 }
