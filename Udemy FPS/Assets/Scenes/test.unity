@@ -1335,6 +1335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7225338958752566610, guid: 6a6c00896280f574ca40e467c1a1b79b, type: 3}
+  canAutoFire: 1
+  fireRate: 0.2
+  fireCounter: 0
 --- !u!4 &760879234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 266573490326095228, guid: 35c5209b1ae032044b36890eba3c662b,
