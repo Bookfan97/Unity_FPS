@@ -1088,6 +1088,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1252475286}
   - {fileID: 1363766579}
   m_Father: {fileID: 1308745084}
   m_RootOrder: 1
@@ -2586,6 +2587,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212692350}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1252475285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252475286}
+  m_Layer: 0
+  m_Name: ADS Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1252475286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252475285}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519534720}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1305299508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2780,9 @@ MonoBehaviour:
   - {fileID: 1075238703}
   - {fileID: 1859422189}
   currentGun: 1
+  ADSPoint: {fileID: 1252475286}
+  gunHolder: {fileID: 1363766579}
+  ADSSpeed: 2
 --- !u!143 &1308745086
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3134,7 +3168,7 @@ Transform:
   - {fileID: 1075238702}
   - {fileID: 1859422188}
   m_Father: {fileID: 519534720}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367431053
 GameObject:
@@ -4398,7 +4432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1859422188
 Transform:
   m_ObjectHideFlags: 0

@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public Gun activeGun;
     public List<Gun> allGuns = new List<Gun>();
     public int currentGun;
+    public Transform ADSPoint, gunHolder;
+    private Vector3 gunStartPos;
+    public float ADSSpeed = 2f;
     private void Awake()
     {
         instance = this;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         currentGun--;
         SwitchGun();
+        gunStartPos = gunHolder.localPosition;
     }
 
 
@@ -112,6 +116,14 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             CameraController.instance.ZoomIn(activeGun.zoomAmount);
+        }
+        if(Input.GetMouseButton(1))
+        {
+            gunHolder.position = Vector3.MoveTowards(gunHolder.position, ADSPoint.position, ADSSpeed* Time.deltaTime);
+        }
+        else
+        {
+            gunHolder.localPosition = Vector3.MoveTowards(gunHolder.localPosition, gunStartPos, ADSSpeed * Time.deltaTime);
         }
         if(Input.GetMouseButtonUp(1))
         {
