@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseInput.x, transform.rotation.eulerAngles.z);
         camTrans.rotation = Quaternion.Euler(camTrans.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && activeGun.fireCounter <=0)
         {
             RaycastHit hit;
             if(Physics.Raycast(camTrans.position, camTrans.forward, out hit, 50f))
