@@ -7,7 +7,7 @@ public class Turret : MonoBehaviour
     public GameObject bullet;
     public float rangeToTargetPlayer, timeBetweenShots;
     private float shotCounter;
-    public Transform gun, firepoint;
+    public Transform gun, firepoint1, firepoint2;
     public float rotationSpeed;
     // Start is called before the first frame update
     void Start()
@@ -20,11 +20,12 @@ public class Turret : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, PlayerController.instance.transform.position)< rangeToTargetPlayer)
         {
-            gun.LookAt(PlayerController.instance.transform.position + new Vector3(0f, 1.2f, 0f));
+            gun.LookAt(PlayerController.instance.transform.position);// + new Vector3(0f, 1.2f, 0f));
             shotCounter -= Time.deltaTime;
             if(shotCounter <=0)
             {
-                Instantiate(bullet, firepoint.position, firepoint.rotation);
+                Instantiate(bullet, firepoint1.position, firepoint1.rotation);
+                Instantiate(bullet, firepoint2.position, firepoint2.rotation);
                 shotCounter = timeBetweenShots;
             }
         }
