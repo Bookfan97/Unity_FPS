@@ -13,6 +13,7 @@ public class WeaponPickup : MonoBehaviour
             PlayerController.instance.AddGun(theGun);
             Destroy(gameObject);
             collected = true;
+            AudioManager.instance.PlaySFX(4);
         }
     }
 }
