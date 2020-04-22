@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 gunStartPos;
     public float ADSSpeed = 2f;
     public AudioSource footstepFast, footstepSlow;
+    private float bounceAmount;
+    private bool bounce;
     private void Awake()
     {
         instance = this;
@@ -78,6 +80,12 @@ public class PlayerController : MonoBehaviour
                 moveInput.y = jumpPower;
                 canDoubleJump = false;
                 AudioManager.instance.PlaySFX(8);
+            }
+            if(bounce)
+            {
+                bounce = false;
+                moveInput.y = bounceAmount;
+                canDoubleJump = true;
             }
             charCon.Move(moveInput * Time.deltaTime);
             Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
@@ -191,5 +199,10 @@ public class PlayerController : MonoBehaviour
             currentGun = allGuns.Count - 2;
             SwitchGun();
         }
+    }
+    public void Bounce(float bounceForce)
+    {
+        bounceAmount = bounceForce;
+        bounce = true;
     }
 }
