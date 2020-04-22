@@ -38,12 +38,10 @@ public class PlayerController : MonoBehaviour
         SwitchGun();
         gunStartPos = gunHolder.localPosition;
     }
-
-
     // Update is called once per frame
     void Update()
     {
-        if (!UIController.instance.pauseScreen.activeInHierarchy)
+        if (!UIController.instance.pauseScreen.activeInHierarchy && !GameManager.instance.levelEnding)
         {
             float yStore = moveInput.y;
             Vector3 vertMove = transform.forward * Input.GetAxisRaw("Vertical");

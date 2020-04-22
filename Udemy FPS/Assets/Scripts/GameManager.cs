@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float waitAfterDying = 2f;
+    [HideInInspector]
+    public bool levelEnding;
     private void Awake()
     {
         instance = this;
