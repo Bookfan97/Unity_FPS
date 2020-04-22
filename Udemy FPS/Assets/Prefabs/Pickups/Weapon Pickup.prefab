@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &577340961649474715
+--- !u!1 &3061748410277176126
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,56 +8,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 577340961649474717}
-  - component: {fileID: 577340961649474716}
-  - component: {fileID: 577340961649474718}
-  - component: {fileID: 577340961649474719}
-  m_Layer: 0
+  - component: {fileID: 3061748410277176122}
+  - component: {fileID: 3061748410277176123}
+  - component: {fileID: 3061748410277176120}
+  - component: {fileID: 3061748410277176121}
+  m_Layer: 10
   m_Name: Weapon Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &577340961649474717
+--- !u!4 &3061748410277176122
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577340961649474715}
+  m_GameObject: {fileID: 3061748410277176126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.433, y: 9.877, z: -0.977}
+  m_LocalPosition: {x: 0.19, y: 0, z: 5.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2007570428812799210}
+  - {fileID: 4153147707609950471}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &577340961649474716
+--- !u!135 &3061748410277176123
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577340961649474715}
+  m_GameObject: {fileID: 3061748410277176126}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &577340961649474718
+  m_Radius: 0.52
+  m_Center: {x: 0, y: 1.2, z: 0}
+--- !u!95 &3061748410277176120
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577340961649474715}
+  m_GameObject: {fileID: 3061748410277176126}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0daa9ae711aa4094386b201742f47c84, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0cf7c08f7d0e9644c9df3595ba5a587e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -66,25 +66,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &577340961649474719
+--- !u!114 &3061748410277176121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577340961649474715}
+  m_GameObject: {fileID: 3061748410277176126}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d706ce127524a14e947bc67de0a246c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theGun: sniper
---- !u!1001 &577340961437478148
+  theGun: 
+--- !u!1001 &3061748411144726761
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 577340961649474717}
+    m_TransformParent: {fileID: 3061748410277176122}
     m_Modifications:
     - target: {fileID: 1431988691348505070, guid: f429e4a888dd91e4e9a524684b1b4d51,
         type: 3}
@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 1431988691348505070, guid: f429e4a888dd91e4e9a524684b1b4d51,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1431988691348505070, guid: f429e4a888dd91e4e9a524684b1b4d51,
         type: 3}
@@ -146,11 +146,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper Model
       objectReference: {fileID: 0}
+    - target: {fileID: 1431988691348505071, guid: f429e4a888dd91e4e9a524684b1b4d51,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989198728988672625, guid: f429e4a888dd91e4e9a524684b1b4d51,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f429e4a888dd91e4e9a524684b1b4d51, type: 3}
---- !u!4 &2007570428812799210 stripped
+--- !u!4 &4153147707609950471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1431988691348505070, guid: f429e4a888dd91e4e9a524684b1b4d51,
     type: 3}
-  m_PrefabInstance: {fileID: 577340961437478148}
+  m_PrefabInstance: {fileID: 3061748411144726761}
   m_PrefabAsset: {fileID: 0}
