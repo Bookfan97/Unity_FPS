@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public Transform ADSPoint, gunHolder;
     private Vector3 gunStartPos;
     public float ADSSpeed = 2f;
+    public AudioSource footstepFast, footstepSlow;
     private void Awake()
     {
         instance = this;

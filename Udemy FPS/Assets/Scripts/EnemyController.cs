@@ -91,7 +91,7 @@ public class EnemyController : MonoBehaviour
                         if (fireCount <= 0)
                         {
                             fireCount = fireRate;
-                            firePoint.LookAt(PlayerController.instance.transform.position + new Vector3(0f, 1.5f, 0f));
+                            firePoint.LookAt(PlayerController.instance.transform.position);// + new Vector3(0f, 1.5f, 0f));
                             Vector3 targetDir = PlayerController.instance.transform.position - transform.position;
                             float angle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
                             if (Mathf.Abs(angle) < 30f)
